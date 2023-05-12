@@ -1,25 +1,31 @@
 {
   "files": {
     "main.css": "/my-portfolio/static/css/main.466cfd1c.css",
-    "main.js": "/my-portfolio/static/js/main.2861ad06.js",
+    "main.js": "/my-portfolio/static/js/main.45849dbe.js",
+    "static/media/pub-cover7.jpeg": "/my-portfolio/static/media/pub-cover7.ef64dfe96b89fc537be9.jpeg",
     "static/media/lecord2.png": "/my-portfolio/static/media/lecord2.335934131d2e6a983a6c.png",
     "static/media/bg_weather.gif": "/my-portfolio/static/media/bg_weather.3b5ceac7aa13ff1ba411.gif",
     "static/media/cover_shoppingmall.jpg": "/my-portfolio/static/media/cover_shoppingmall.16b817083bffbd94f3ad.jpg",
+    "static/media/pub-cover8.jpeg": "/my-portfolio/static/media/pub-cover8.542f11e4a0601a90166f.jpeg",
     "static/media/bg_painter.jpg": "/my-portfolio/static/media/bg_painter.ffe16a908f74eef01170.jpg",
     "static/media/bg_game.png": "/my-portfolio/static/media/bg_game.f09af3c51cfbdfb781bc.png",
     "static/media/cover_dbd.jpg": "/my-portfolio/static/media/cover_dbd.9dbae3265e44ab33763c.jpg",
     "static/media/cover_painter.jpg": "/my-portfolio/static/media/cover_painter.554c7a656c5ee332eee5.jpg",
+    "static/media/pub-cover2.jpeg": "/my-portfolio/static/media/pub-cover2.ac35637bc671295d7609.jpeg",
     "static/media/cover_promotion.jpg": "/my-portfolio/static/media/cover_promotion.9e4773d41f74ed8df48d.jpg",
+    "static/media/pub-cover4.jpeg": "/my-portfolio/static/media/pub-cover4.51ab732034b32841ebc4.jpeg",
     "static/media/cover_game.jpg": "/my-portfolio/static/media/cover_game.84bfc52af689d442d92c.jpg",
+    "static/media/design_cover6.jpg": "/my-portfolio/static/media/design_cover6.6bc71eab1f38f626223f.jpg",
     "static/media/cover_weather.jpg": "/my-portfolio/static/media/cover_weather.9b88a10e7fb93275c845.jpg",
+    "static/media/design_cover9.jpg": "/my-portfolio/static/media/design_cover9.8ddc3efaed9797254fb4.jpg",
     "static/media/cover_webbuilder.jpg": "/my-portfolio/static/media/cover_webbuilder.98a5c334aa73befb8d73.jpg",
     "static/media/cover_todo.jpg": "/my-portfolio/static/media/cover_todo.7ef6f4bfa9b5c7fb5a80.jpg",
     "index.html": "/my-portfolio/index.html",
     "main.466cfd1c.css.map": "/my-portfolio/static/css/main.466cfd1c.css.map",
-    "main.2861ad06.js.map": "/my-portfolio/static/js/main.2861ad06.js.map"
+    "main.45849dbe.js.map": "/my-portfolio/static/js/main.45849dbe.js.map"
   },
   "entrypoints": [
     "static/css/main.466cfd1c.css",
-    "static/js/main.2861ad06.js"
+    "static/js/main.45849dbe.js"
   ]
 }
