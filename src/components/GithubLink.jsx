@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const GithubLink = () => {
   return (
     <HeaderWrapper>
-      <Link to="https://github.com/many-yun" target="_blank">
+      <Link to="https://github.com/many-yun/my-portfolio" target="_blank">
         <Svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true">
           <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
           <path
