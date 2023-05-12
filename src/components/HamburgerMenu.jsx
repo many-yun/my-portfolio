@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import lpImage from '../assets/lecord2.png'
 import { useEffect } from 'react'
@@ -10,8 +10,9 @@ import { FiMail } from 'react-icons/fi'
 
 import theme from '../utils/theme'
 
-const HamburgerMenu = () => {
+const HamburgerMenu = e => {
   const location = useLocation()
+  const movePage = useNavigate()
   const nowLocation = location.pathname.split('/')[1]
 
   const [menuOn, setMenuOn] = useState('off')
@@ -39,7 +40,13 @@ const HamburgerMenu = () => {
   }
 
   const onLocationNameChange = e => {
-    setLocationName(e.target.dataset.to)
+    setLocationName(e.target.dataset.title)
+  }
+
+  const onClickMovePage = e => {
+    movePage(`/${e.target.dataset.to}`, {
+      state: { subTitle: `${e.target.dataset.title}` },
+    })
   }
 
   return (
@@ -56,24 +63,39 @@ const HamburgerMenu = () => {
           <Link to="/">
             <FaHome /> Home
           </Link>
-          <Link to="/about" data-to="about" onMouseOver={onLocationNameChange}>
+          <Link to="/about" data-title="about" onMouseOver={onLocationNameChange}>
             <RxFace /> About
           </Link>
-          <Link to="/portfolio" data-to="portfolio" onMouseOver={onLocationNameChange}>
+          <Link to="/portfolio" data-title="portfolio" onMouseOver={onLocationNameChange}>
             <MdMonitor /> Portfolio
           </Link>
           <SubLinkWrapper>
-            <Link data-to="jsreact" onMouseOver={onLocationNameChange}>
+            <div
+              data-to="portfolio"
+              data-title="jsreact"
+              onMouseOver={onLocationNameChange}
+              onClick={onClickMovePage}
+            >
               - JS/React
-            </Link>
-            <Link data-to="publishing" onMouseOver={onLocationNameChange}>
+            </div>
+            <div
+              data-to="portfolio"
+              data-title="publishing"
+              onMouseOver={onLocationNameChange}
+              onClick={onClickMovePage}
+            >
               - Publishing
-            </Link>
-            <Link data-to="design" onMouseOver={onLocationNameChange}>
+            </div>
+            <div
+              data-to="portfolio"
+              data-title="design"
+              onMouseOver={onLocationNameChange}
+              onClick={onClickMovePage}
+            >
               - Design
-            </Link>
+            </div>
           </SubLinkWrapper>
-          <Link to="/contect" data-to="contect" onMouseOver={onLocationNameChange}>
+          <Link to="/contect" data-title="contect" onMouseOver={onLocationNameChange}>
             <FiMail /> Contect
           </Link>
         </LinkWrapper>
@@ -117,6 +139,11 @@ const LpImageWrapper = styled.div`
   @media screen and (${theme.laptop}) {
     width: 300px;
     height: 300px;
+  }
+
+  @media screen and (${theme.laptop2}) {
+    width: 250px;
+    height: 250px;
   }
 `
 
@@ -196,6 +223,11 @@ const LinkWrapper = styled.div`
     padding: 20px 0;
     transition: 0.1s;
 
+    @media screen and (${theme.laptop2}) {
+      font-size: 1.7rem;
+      padding: 15px 0;
+    }
+
     &:hover {
       transform: translate(20px, 0);
     }
@@ -211,9 +243,21 @@ const LinkWrapper = styled.div`
 `
 
 const SubLinkWrapper = styled.div`
-  & > a {
+  & > div {
     display: block;
     font-size: 1.3rem;
     padding: 10px 30px;
+    cursor: pointer;
+    color: white;
+    transition: 0.1s;
+
+    &:hover {
+      transform: translate(20px, 0);
+    }
+
+    @media screen and (${theme.laptop2}) {
+      font-size: 1.1rem;
+      padding: 8px 20px;
+    }
   }
 `

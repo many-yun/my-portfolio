@@ -9,10 +9,12 @@ import theme from '../utils/theme'
 /** 바이닐 반지름, MenuWrapper 가로,세로 길이 */
 let lpRadius = 650
 
-if (window.innerWidth <= 1600) {
+if (window.innerWidth <= 1600 && window.innerWidth > 1280) {
   lpRadius = 500
 } else if (window.innerWidth >= 2060) {
   lpRadius = 800
+} else if (window.innerWidth <= 1280) {
+  lpRadius = 450
 }
 
 const menuWidth = 4 * lpRadius
@@ -75,7 +77,9 @@ function Main() {
       return
     }
     timer = setTimeout(() => {
-      movePage(`/${e.target.dataset.title}`, { state: `${e.target.dataset.subtitle}` })
+      movePage(`/${e.target.dataset.title}`, {
+        state: { subTitle: `${e.target.dataset.subtitle}` },
+      })
       timer = null
     }, 1000)
   }
@@ -227,6 +231,11 @@ const PortfolioMenu = styled.div`
     bottom: -15%;
   }
 
+  @media screen and (${theme.laptop2}) {
+    right: 9%;
+    bottom: -16%;
+  }
+
   & > div {
     background-color: #9d8bc3;
     width: 120px;
@@ -346,6 +355,10 @@ const VinylTitle = styled.div`
     font-weight: 100;
     letter-spacing: 10px;
     color: white;
+
+    @media screen and (${theme.laptop2}) {
+      font-size: 3rem;
+    }
 
     &:nth-child(1) {
       margin: 18% auto 0 auto;

@@ -475,6 +475,10 @@ const PrevAndNext = styled.div`
   align-items: center;
   margin-left: 20px;
 
+  @media screen and (${theme.laptop2}) {
+    margin-left: 10px;
+  }
+
   & > div {
     font-size: 2rem;
 
@@ -501,6 +505,10 @@ const DotsWrapper = styled.div`
   margin-top: -5px;
   width: 200px;
 
+  @media screen and (${theme.laptop2}) {
+    width: 150px;
+  }
+
   // dot
   & > div {
     width: 18px;
@@ -510,6 +518,11 @@ const DotsWrapper = styled.div`
     cursor: pointer;
     opacity: 0.6;
     transition: 0.1s;
+
+    @media screen and (${theme.laptop2}) {
+      width: 13px;
+      height: 13px;
+    }
 
     &.on {
       background-color: white;
@@ -581,14 +594,27 @@ const ProjectInfo = styled.div`
     font-weight: 500;
     line-height: 3.2rem;
 
+    @media screen and (${theme.laptop2}) {
+      font-size: 1.5rem;
+      line-height: 2.5rem;
+    }
+
     & > p {
       font-size: 1.5rem;
       opacity: 0.3;
+
+      @media screen and (${theme.laptop2}) {
+        font-size: 1rem;
+      }
     }
   }
 
   & .stack {
     margin: 30px 0;
+
+    @media screen and (${theme.laptop2}) {
+      margin: 15px 0;
+    }
 
     & > img {
       margin-right: 10px;
@@ -603,6 +629,12 @@ const ProjectInfo = styled.div`
     position: relative;
     opacity: 0.9;
 
+    @media screen and (${theme.laptop2}) {
+      font-size: 0.9rem;
+      line-height: 1.3rem;
+      padding-top: 30px;
+    }
+
     &::before {
       content: '';
       width: 100%;
@@ -616,6 +648,10 @@ const ProjectInfo = styled.div`
 
   & .link {
     margin-top: 50px;
+
+    @media screen and (${theme.laptop2}) {
+      margin-top: 30px;
+    }
 
     & > a {
       display: inline-block;
@@ -632,6 +668,13 @@ const ProjectInfo = styled.div`
         width: 150px;
         height: 50px;
         line-height: 50px;
+      }
+
+      @media screen and (${theme.laptop2}) {
+        width: 130px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 1rem;
       }
 
       &:hover {
@@ -665,6 +708,12 @@ const ProjectInfo = styled.div`
           height: 50px;
           line-height: 44px;
         }
+
+        @media screen and (${theme.laptop2}) {
+          width: 130px;
+          height: 40px;
+          line-height: 35px;
+        }
       }
 
       & svg {
@@ -692,6 +741,11 @@ const JacketImageWrapper = styled.div`
     height: 500px;
   }
 
+  @media screen and (${theme.laptop2}) {
+    width: 500px;
+    height: 450px;
+  }
+
   @media screen and (${theme.desktop2}) {
     width: 1000px;
     height: 800px;
@@ -713,6 +767,11 @@ const JacketImageWrapper = styled.div`
       height: 500px;
     }
 
+    @media screen and (${theme.laptop2}) {
+      width: 450px;
+      height: 450px;
+    }
+
     @media screen and (${theme.desktop2}) {
       width: 800px;
       height: 800px;
@@ -732,6 +791,11 @@ const JacketImageWrapper = styled.div`
     @media screen and (${theme.laptop}) {
       width: 500px;
       height: 500px;
+    }
+
+    @media screen and (${theme.laptop2}) {
+      width: 450px;
+      height: 450px;
     }
 
     @media screen and (${theme.desktop2}) {

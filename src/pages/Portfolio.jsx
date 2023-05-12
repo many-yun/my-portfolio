@@ -15,20 +15,21 @@ import { BsCodeSlash } from 'react-icons/bs'
 import { DiPhotoshop } from 'react-icons/di'
 import { BiSkipNext, BiSkipPrevious } from 'react-icons/bi'
 import { BsChevronDoubleDown } from 'react-icons/bs'
+import theme from '../utils/theme'
 
 const Portfolio = e => {
   const location = useLocation()
-  const subTitle = location.state
+  const state = location.state
   const nowLocation = location.pathname.split('/')[1]
   let firstNowHeight = 0
 
   const movePage = useNavigate()
 
-  if (subTitle !== null && subTitle === 'jsreact') {
+  if (state !== null && state.subTitle === 'jsreact') {
     firstNowHeight = -100
-  } else if (subTitle !== null && subTitle === 'publishing') {
+  } else if (state !== null && state.subTitle === 'publishing') {
     firstNowHeight = -200
-  } else if (subTitle !== null && subTitle === 'design') {
+  } else if (state !== null && state.subTitle === 'design') {
     firstNowHeight = -300
   } else firstNowHeight = 0
 
@@ -94,17 +95,21 @@ const Portfolio = e => {
     mediaNowHeight = 170
   } else if (nowHeight !== 0 && window.innerWidth > 1600) {
     mediaNowHeight = 55
-  } else if (nowHeight === 0 && window.innerWidth <= 1600) {
+  } else if (nowHeight === 0 && window.innerWidth <= 1600 && window.innerWidth > 1280) {
     mediaNowHeight = 140
-  } else if (nowHeight !== 0 && window.innerWidth <= 1600) {
+  } else if (nowHeight !== 0 && window.innerWidth <= 1600 && window.innerWidth > 1280) {
     mediaNowHeight = 50
+  } else if (nowHeight === 0 && window.innerWidth <= 1280) {
+    mediaNowHeight = 100
+  } else if (nowHeight !== 0 && window.innerWidth <= 1280) {
+    mediaNowHeight = 40
   }
 
   return (
     <PortfolioWrapper onWheel={onScrollEvent} className={goToPage}>
       <GithubLink />
       <PageTitle title={nowLocation} inUnderPage={inUnderPage} nowHeight={nowHeight} />
-      <HamburgerMenu />
+      <HamburgerMenu nowHeight={nowHeight} />
       <PortPageWrapper style={{ transform: `translate(0,${nowHeight}vh)` }}>
         <PortfolioList>
           <ListJsReact
@@ -308,6 +313,10 @@ const ListTitle = styled.p`
   font-size: 1.3rem;
   font-weight: 500;
   color: #555;
+
+  @media screen and (${theme.laptop2}) {
+    margin-top: 230px;
+  }
 `
 
 const AlbumJacket = styled.div`
@@ -321,6 +330,11 @@ const AlbumJacket = styled.div`
   align-items: center;
   text-align: center;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+
+  @media screen and (${theme.laptop2}) {
+    width: 200px;
+    height: 200px;
+  }
 `
 const turnVinyl = keyframes`
   0%{transform:rotate(0deg)}
@@ -341,6 +355,11 @@ const Lecord = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (${theme.laptop2}) {
+    width: 200px;
+    height: 200px;
+  }
 
   & > div {
     border-radius: 100%;
@@ -403,8 +422,18 @@ const PortfolioList = styled.div`
     cursor: pointer;
     transition: 0.2s;
 
+    @media screen and (${theme.laptop2}) {
+      width: 200px;
+      height: 200px;
+      margin: 50px;
+    }
+
     &:hover {
       width: 450px;
+
+      @media screen and (${theme.laptop2}) {
+        width: 300px;
+      }
 
       & .listTitle {
         color: black;

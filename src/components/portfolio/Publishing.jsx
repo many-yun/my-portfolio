@@ -141,20 +141,31 @@ const SliderArrowBtn = styled.div`
   width: 200px;
   left: calc(50% - 100px);
   bottom: 100px;
+  justify-content: center;
 
   @media screen and (${theme.laptop}) {
     bottom: 60px;
   }
 
+  @media screen and (${theme.laptop2}) {
+    bottom: 30px;
+  }
+
   & > div {
     width: 50px;
     height: 50px;
+    line-height: 50px;
     border-radius: 100%;
     cursor: pointer;
     overflow: hidden;
     border: 2px solid black;
     text-align: center;
-    line-height: 50px;
+
+    @media screen and (${theme.laptop2}) {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+    }
 
     &:hover {
       background-color: black;

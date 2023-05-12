@@ -34,14 +34,30 @@ const PageTitle = e => {
     subTitleHeight = -400
   } else if (e.title === 'portfolio' && e.inUnderPage === false && window.innerWidth >= 1600) {
     subTitleHeight = -250
-  } else if (e.title === 'portfolio' && e.inUnderPage === true && window.innerWidth <= 1600) {
+  } else if (
+    e.title === 'portfolio' &&
+    e.inUnderPage === true &&
+    window.innerWidth <= 1600 &&
+    window.innerWidth > 1280
+  ) {
     subTitleHeight = -310
-  } else if (e.title === 'portfolio' && e.inUnderPage === false && window.innerWidth <= 1600) {
+  } else if (
+    e.title === 'portfolio' &&
+    e.inUnderPage === false &&
+    window.innerWidth <= 1600 &&
+    window.innerWidth > 1280
+  ) {
     subTitleHeight = -200
+  } else if (e.title === 'portfolio' && e.inUnderPage === true && window.innerWidth <= 1280) {
+    subTitleHeight = -230
+  } else if (e.title === 'portfolio' && e.inUnderPage === false && window.innerWidth <= 1280) {
+    subTitleHeight = -150
   } else if (e.title !== 'portfolio' && window.innerWidth > 1600) {
     subTitleHeight = -250
-  } else if (e.title !== 'portfolio' && window.innerWidth <= 1600) {
+  } else if (e.title !== 'portfolio' && window.innerWidth <= 1600 && window.innerWidth > 1280) {
     subTitleHeight = -200
+  } else if (e.title !== 'portfolio' && window.innerWidth <= 1280) {
+    subTitleHeight = -150
   }
 
   return (
@@ -88,6 +104,13 @@ const PageTitleWrapper = styled.div`
     top: -200px;
     left: calc(50% - 200px);
   }
+
+  @media screen and (${theme.laptop2}) {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    left: calc(50% - 150px);
+  }
 `
 
 const TitleBG = styled.div`
@@ -117,6 +140,11 @@ const Title = styled.p`
   @media screen and (${theme.laptop}) {
     margin-top: -150px;
   }
+
+  @media screen and (${theme.laptop2}) {
+    font-size: 4rem;
+    margin-top: -120px;
+  }
 `
 
 const SubTitle = styled.p`
@@ -127,5 +155,9 @@ const SubTitle = styled.p`
 
   @media screen and (${theme.laptop}) {
     margin-top: 10px;
+  }
+
+  @media screen and (${theme.laptop2}) {
+    margin-top: 15px;
   }
 `
