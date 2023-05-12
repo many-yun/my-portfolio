@@ -11,8 +11,7 @@ import styled from 'styled-components'
 function App() {
   return (
     <AppWrapper>
-      {/* <GithubLink /> */}
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/about" element={<AboutMe />} />
