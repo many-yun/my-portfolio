@@ -11,14 +11,12 @@ import styled from 'styled-components'
 function App() {
   return (
     <AppWrapper>
-      <Router basename={process.env.PUBLIC_URL}>
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/about" element={<AboutMe />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/contect" element={<Contect />} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/about" element={<AboutMe />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/contect" element={<Contect />} />
+      </Routes>
     </AppWrapper>
   )
 }
