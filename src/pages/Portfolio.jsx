@@ -22,9 +22,7 @@ const Portfolio = e => {
   const nowLocation = location.pathname.split('/')[1]
   let firstNowHeight = 0
 
-  const [goToPage, setGoToPage] = useState('')
-  const [nowHeight, setNowHeight] = useState(firstNowHeight)
-  const [inUnderPage, setInUnderPage] = useState(false)
+  console.log(subTitle)
 
   const movePage = useNavigate()
 
@@ -35,6 +33,10 @@ const Portfolio = e => {
   } else if (subTitle !== null && subTitle === 'design') {
     firstNowHeight = -300
   } else firstNowHeight = 0
+
+  const [goToPage, setGoToPage] = useState('')
+  const [nowHeight, setNowHeight] = useState(firstNowHeight)
+  const [inUnderPage, setInUnderPage] = useState(false)
 
   /** 스크롤 쓰로틀링 */
   const onScrollEvent = e => {

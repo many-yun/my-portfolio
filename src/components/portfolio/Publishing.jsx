@@ -9,6 +9,7 @@ import theme from '../../utils/theme'
 import lpImage from '../../assets/lecord2.png'
 import pubCover2 from '../../assets/pub-cover2.jpeg'
 import pubCover4 from '../../assets/pub-cover4.jpeg'
+import pubCover5 from '../../assets/pub-cover5.jpeg'
 import pubCover7 from '../../assets/pub-cover7.jpeg'
 import pubCover8 from '../../assets/pub-cover8.jpeg'
 
@@ -262,7 +263,7 @@ const PublishingWork4 = styled(Link)`
 const PublishingWork5 = styled(Link)`
   & .publishingCover {
     //은우소프트
-    background-image: url('http://eunwoo.syn.co.kr/common/img/visual01.jpg');
+    background-image: url(${pubCover5});
   }
 `
 const PublishingWork6 = styled(Link)`
