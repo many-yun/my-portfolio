@@ -2,7 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const companyBG = 'http://urside.co.kr/file/home_info/img_1.jpg'
+import designCover6 from '../../assets/design_cover6.jpg'
+import designCover9 from '../../assets/design_cover9.jpg'
+
+const companyBG = designCover6
 const shoppingBG = 'https://sinbiweb.co.kr/file/item/18_1.jpg'
 const lawBG = 'https://sinbiweb.co.kr/file/item/39_1.jpg'
 const hospitalBG = 'https://sinbiweb.co.kr/file/item/23_1.jpg'
@@ -10,7 +13,7 @@ const escapeBG = 'https://escapelab.co.kr/file/main_img/1_a.jpg'
 const moneyBG = 'https://sinbiweb.co.kr/file/item/10_1.jpg'
 const carBG = 'https://sinbiweb.co.kr/file/item/51_1.jpg'
 const estateBG = 'https://sinbiweb.co.kr/file/item/31_1.jpg'
-const charchBG = 'http://swchurch.15440835.com/layout3/images/contents/vis01.jpg'
+const charchBG = designCover9
 const childBG = 'https://sinbiweb.co.kr/file/item/28_1.jpg'
 
 const Design = () => {

@@ -7,6 +7,10 @@ import { TbPlayerTrackNextFilled, TbPlayerTrackPrevFilled } from 'react-icons/tb
 
 import theme from '../../utils/theme'
 import lpImage from '../../assets/lecord2.png'
+import pubCover2 from '../../assets/pub-cover2.jpeg'
+import pubCover4 from '../../assets/pub-cover4.jpeg'
+import pubCover7 from '../../assets/pub-cover7.jpeg'
+import pubCover8 from '../../assets/pub-cover8.jpeg'
 
 const widhtAndHeight = 400
 
@@ -14,7 +18,11 @@ const Publishing = () => {
   const [sliderPosition, setSliderPosition] = useState(0)
 
   const onClickPublishingNext = () => {
-    sliderPosition <= 5 ? setSliderPosition(sliderPosition + 1) : setSliderPosition(6)
+    if (window.innerWidth <= 1600) {
+      sliderPosition <= 6 ? setSliderPosition(sliderPosition + 1) : setSliderPosition(7)
+    } else if (window.innerWidth > 1600) {
+      sliderPosition <= 5 ? setSliderPosition(sliderPosition + 1) : setSliderPosition(6)
+    }
   }
 
   const onClickPublishingPrev = () => {
@@ -169,6 +177,7 @@ const SlideWrapper = styled.div`
   display: flex;
   align-items: center;
   transition: 0.2s;
+  // width: 4640px;
 
   & > a {
     display: inline-block;
@@ -235,7 +244,7 @@ const PublishingWork1 = styled(Link)`
 const PublishingWork2 = styled(Link)`
   & .publishingCover {
     //크리처
-    background-image: url('http://creature.syn.co.kr/cheditor/attach/sc_22042022162926999.jpeg');
+    background-image: url(${pubCover2});
   }
 `
 const PublishingWork3 = styled(Link)`
@@ -247,7 +256,7 @@ const PublishingWork3 = styled(Link)`
 const PublishingWork4 = styled(Link)`
   & .publishingCover {
     //티아모
-    background-image: url('http://tiamo.syn.co.kr/common/img/sec01_img01.jpg');
+    background-image: url(${pubCover4});
   }
 `
 const PublishingWork5 = styled(Link)`
@@ -265,12 +274,12 @@ const PublishingWork6 = styled(Link)`
 const PublishingWork7 = styled(Link)`
   & .publishingCover {
     // 오뷰코스타
-    background-image: url('http://ovucosta.syn.co.kr/common/img/main_vi01.jpg');
+    background-image: url(${pubCover7});
   }
 `
 const PublishingWork8 = styled(Link)`
   & .publishingCover {
     //비케이
-    background-image: url('http://bk.syn.co.kr/common/img/visual01.jpg');
+    background-image: url(${pubCover8});
   }
 `
