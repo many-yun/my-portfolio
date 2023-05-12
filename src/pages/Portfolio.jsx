@@ -22,8 +22,6 @@ const Portfolio = e => {
   const nowLocation = location.pathname.split('/')[1]
   let firstNowHeight = 0
 
-  console.log(subTitle)
-
   const movePage = useNavigate()
 
   if (subTitle !== null && subTitle === 'jsreact') {
