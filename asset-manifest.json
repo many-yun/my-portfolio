@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/my-portfolio/static/css/main.a787efbb.css",
+    "main.js": "/my-portfolio/static/js/main.a85bfe78.js",
+    "static/media/lecord2.png": "/my-portfolio/static/media/lecord2.335934131d2e6a983a6c.png",
+    "static/media/bg_weather.gif": "/my-portfolio/static/media/bg_weather.3b5ceac7aa13ff1ba411.gif",
+    "static/media/cover_shoppingmall.jpg": "/my-portfolio/static/media/cover_shoppingmall.16b817083bffbd94f3ad.jpg",
+    "static/media/bg_painter.jpg": "/my-portfolio/static/media/bg_painter.ffe16a908f74eef01170.jpg",
+    "static/media/bg_game.png": "/my-portfolio/static/media/bg_game.f09af3c51cfbdfb781bc.png",
+    "static/media/cover_dbd.jpg": "/my-portfolio/static/media/cover_dbd.9dbae3265e44ab33763c.jpg",
+    "static/media/cover_painter.jpg": "/my-portfolio/static/media/cover_painter.554c7a656c5ee332eee5.jpg",
+    "static/media/cover_promotion.jpg": "/my-portfolio/static/media/cover_promotion.9e4773d41f74ed8df48d.jpg",
+    "static/media/cover_game.jpg": "/my-portfolio/static/media/cover_game.84bfc52af689d442d92c.jpg",
+    "static/media/cover_weather.jpg": "/my-portfolio/static/media/cover_weather.9b88a10e7fb93275c845.jpg",
+    "static/media/cover_webbuilder.jpg": "/my-portfolio/static/media/cover_webbuilder.98a5c334aa73befb8d73.jpg",
+    "static/media/cover_todo.jpg": "/my-portfolio/static/media/cover_todo.7ef6f4bfa9b5c7fb5a80.jpg",
+    "index.html": "/my-portfolio/index.html",
+    "main.a787efbb.css.map": "/my-portfolio/static/css/main.a787efbb.css.map",
+    "main.a85bfe78.js.map": "/my-portfolio/static/js/main.a85bfe78.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a787efbb.css",
+    "static/js/main.a85bfe78.js"
+  ]
+}
