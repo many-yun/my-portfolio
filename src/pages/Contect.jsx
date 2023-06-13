@@ -7,6 +7,7 @@ import { FaGithub } from 'react-icons/fa'
 import { IoMdMail } from 'react-icons/io'
 import { useState } from 'react'
 import { BiSkipNext, BiSkipPrevious } from 'react-icons/bi'
+import OpenPcWarning from '../components/OpenPcWarning'
 
 const Connect = () => {
   const location = useLocation()
@@ -28,6 +29,7 @@ const Connect = () => {
 
   return (
     <ContectWrapper className={goToPage}>
+      <OpenPcWarning />
       <GithubLink />
       <PageTitle title={nowLocation} />
       <HamburgerMenu />

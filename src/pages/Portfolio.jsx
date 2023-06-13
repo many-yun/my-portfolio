@@ -16,6 +16,7 @@ import { DiPhotoshop } from 'react-icons/di'
 import { BiSkipNext, BiSkipPrevious } from 'react-icons/bi'
 import { BsChevronDoubleDown } from 'react-icons/bs'
 import theme from '../utils/theme'
+import OpenPcWarning from '../components/OpenPcWarning'
 
 const Portfolio = e => {
   const location = useLocation()
@@ -107,6 +108,7 @@ const Portfolio = e => {
 
   return (
     <PortfolioWrapper onWheel={onScrollEvent} className={goToPage}>
+      <OpenPcWarning />
       <GithubLink />
       <PageTitle title={nowLocation} inUnderPage={inUnderPage} nowHeight={nowHeight} />
       <HamburgerMenu nowHeight={nowHeight} />

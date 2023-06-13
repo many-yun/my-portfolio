@@ -5,6 +5,8 @@ import PageTitle from '../components/PageTitle'
 import GithubLink from '../components/GithubLink'
 import HamburgerMenu from '../components/HamburgerMenu'
 import { BiSkipNext, BiSkipPrevious } from 'react-icons/bi'
+import theme from '../utils/theme'
+import OpenPcWarning from '../components/OpenPcWarning'
 
 const AboutMe = () => {
   const [goToPage, setGoToPage] = useState('')
@@ -40,6 +42,7 @@ const AboutMe = () => {
 
   return (
     <AboutMeWrapper className={goToPage}>
+      <OpenPcWarning />
       <HamburgerMenu />
       <GithubLink />
       <PageTitle title={nowLocation} />
@@ -69,11 +72,11 @@ const AboutMe = () => {
               <span>Git</span>
               <span>Github</span>
             </div>
-            <div>
+            {/* <div>
               <h2>Studying</h2>
               <span>TypeScript</span>
               <span>NextJS</span>
-            </div>
+            </div> */}
           </AboutTextRight>
         </AboutTextWrapper>
         <NextAndPrev>
@@ -270,11 +273,26 @@ const AboutTextWrapper = styled.div`
   line-height: 1.5rem;
   padding: 0 15%;
 
+  @media screen and (${theme.mobile}) {
+    flex-direction: column;
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+    padding: 0 5%;
+
+    & > div {
+      padding: 10px;
+    }
+  }
+
   & > div {
-    width: 50%;
+    width: 100%;
     padding: 30px;
     animation: ${showText} 1s;
     animation-fill-mode: backwards;
+
+    @media screen and (${theme.mobile}) {
+      padding: 10px;
+    }
   }
 `
 

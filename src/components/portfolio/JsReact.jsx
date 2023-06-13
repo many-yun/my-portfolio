@@ -589,6 +589,10 @@ const ProjectInfo = styled.div`
   justify-content: center;
   padding: 0 8%;
 
+  @media screen and (${theme.laptop2}) {
+    padding: 0 3%;
+  }
+
   & h1 {
     font-size: 2.5rem;
     font-weight: 500;

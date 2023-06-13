@@ -5,6 +5,8 @@ import { Link, Router, useNavigate } from 'react-router-dom'
 import GithubLink from '../components/GithubLink'
 import ScrollInfo from '../components/ScrollInfo'
 import theme from '../utils/theme'
+import Loading from '../components/Loading'
+import OpenPcWarning from '../components/OpenPcWarning'
 
 /** 바이닐 반지름, MenuWrapper 가로,세로 길이 */
 let lpRadius = 650
@@ -13,8 +15,10 @@ if (window.innerWidth <= 1600 && window.innerWidth > 1280) {
   lpRadius = 500
 } else if (window.innerWidth >= 2060) {
   lpRadius = 800
-} else if (window.innerWidth <= 1280) {
+} else if (window.innerWidth <= 1280 && window.innerWidth > 600) {
   lpRadius = 450
+} else if (window.innerWidth <= 600 && window.innerWidth > 300) {
+  lpRadius = 300
 }
 
 const menuWidth = 4 * lpRadius
@@ -86,11 +90,15 @@ function Main() {
 
   return (
     <MainWrapper>
+      <OpenPcWarning />
+      <Loading />
       <GithubLink />
       <MainTextWrapper>
-        <p>DESIGN</p>
-        <p>PUBLISHING</p>
+        <p>DAYUN'S</p>
+        <p>PORTFOLIO</p>
         <p>DEVELOPMENT</p>
+        <p>PUBLISHING</p>
+        <p>DESIGN</p>
       </MainTextWrapper>
       <FlexWrapper className={onAnimation}>
         <MenuWrapper onWheel={onScrollEvent} style={{ transform: `rotate(${degree}deg)` }}>
@@ -232,8 +240,25 @@ const PortfolioMenu = styled.div`
   }
 
   @media screen and (${theme.laptop2}) {
-    right: 9%;
-    bottom: -16%;
+    right: -5%;
+    bottom: 4%;
+
+    & > div {
+      &:nth-child(1) {
+        transform: translate(0, 0);
+      }
+      &:nth-child(2) {
+        transform: translate(125%, -130%) !important;
+      }
+      &:nth-child(3) {
+        transform: translate(250%, -200%) !important;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    right: -8%;
+    bottom: -0.5%;
   }
 
   & > div {
@@ -311,6 +336,8 @@ const MenuWrapper = styled.div`
   transform-origin: ${lpRadius * 2}px ${centralPoint}px;
   transition: 0.8s;
   animation: ${lpUp} 1s;
+  animation-delay: 2.5s;
+  animation-fill-mode: backwards;
 `
 
 const ImageWrapper = styled.div`
@@ -376,6 +403,23 @@ const VinylWrapper = styled.div`
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
   }
 
+  @media screen and (${theme.laptop2}) {
+    &:nth-child(1) > .imageWrapper {
+      animation: ${turnVinyl1} 5s infinite linear;
+      box-shadow: 0 0 50px #538d9f;
+    }
+
+    &:nth-child(2) > .imageWrapper {
+      animation: ${turnVinyl2} 5s infinite linear;
+      box-shadow: 0 0 50px #9d8bc3;
+    }
+
+    &:nth-child(3) > .imageWrapper {
+      animation: ${turnVinyl3} 5s infinite linear;
+      box-shadow: 0 0 50px #b7bc7e;
+    }
+  }
+
   &:nth-child(1):hover > .imageWrapper {
     animation: ${turnVinyl1} 5s infinite linear;
     box-shadow: 0 0 50px #538d9f;
@@ -439,18 +483,24 @@ const MainTextWrapper = styled.div`
       line-height: 11rem;
     }
 
+    @media screen and (${theme.mobile}) {
+      font-size: 6rem;
+      line-height: 5rem;
+    }
+
     &:nth-child(3n-2) {
       color: #f0f1f3;
-      animation-delay: 0;
+      animation-delay: 2s;
+      animation-fill-mode: backwards;
     }
     &:nth-child(3n-1) {
       color: #bbb;
       text-shadow: -1px 0px #bbb, 0px 1px #bbb, 1px 0px #bbb, 0px -1px #bbb;
-      animation-delay: 0.3s;
+      animation-delay: 2.3s;
       animation-fill-mode: backwards;
     }
     &:nth-child(3n) {
-      animation-delay: 0.6s;
+      animation-delay: 2.6s;
       animation-fill-mode: backwards;
     }
   }
