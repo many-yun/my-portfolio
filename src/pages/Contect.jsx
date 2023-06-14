@@ -5,9 +5,10 @@ import GithubLink from '../components/GithubLink'
 import HamburgerMenu from '../components/HamburgerMenu'
 import { FaGithub } from 'react-icons/fa'
 import { IoMdMail } from 'react-icons/io'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { BiSkipNext, BiSkipPrevious } from 'react-icons/bi'
 import OpenPcWarning from '../components/OpenPcWarning'
+import emailjs from '@emailjs/browser'
 
 const Connect = () => {
   const location = useLocation()
@@ -27,6 +28,22 @@ const Connect = () => {
     }, 1000)
   }
 
+  const form = useRef()
+
+  const sendEmail = e => {
+    e.preventDefault()
+
+    emailjs.sendForm('service_04iajla', 'template_xrdj3sp', form.current, 'ZOYCFhh0jXrafvhL4').then(
+      result => {
+        alert('메일이 전송되었습니다.')
+        window.location.reload()
+      },
+      error => {
+        alert('메일 전송에 실패했습니다.')
+      },
+    )
+  }
+
   return (
     <ContectWrapper className={goToPage}>
       <OpenPcWarning />
@@ -35,19 +52,22 @@ const Connect = () => {
       <HamburgerMenu />
       <FlexWrapper>
         <ContectTextWrapper>
+          <EmailFormWrapper>
+            <form ref={form} onSubmit={sendEmail}>
+              <label>Name</label>
+              <input type="text" name="from_name" />
+              <label>Email</label>
+              <input type="email" name="from_email" placeholder="aaaa@aaaa.com" />
+              <label>Message</label>
+              <textarea name="message" />
+              <input type="submit" value="Send" />
+            </form>
+          </EmailFormWrapper>
           <div>
             <Link to="https://github.com/many-yun" target="_blank">
               <FaGithub />
             </Link>
             <p>many-yun</p>
-          </div>
-          <div>
-            <Link to="mailto:dayoon1124@naver.com">
-              <IconWrapper>
-                <IoMdMail style={{ color: 'white', fontSize: '2.5rem', marginTop: '12px' }} />
-              </IconWrapper>
-            </Link>
-            <p>dayoon1124@naver.com</p>
           </div>
         </ContectTextWrapper>
       </FlexWrapper>
@@ -62,6 +82,44 @@ const Connect = () => {
 }
 
 export default Connect
+
+const EmailFormWrapper = styled.div`
+  width: 300px;
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    & label {
+      margin-bottom: 7px;
+    }
+
+    & input[type='text'],
+    & input[type='email'] {
+      height: 30px;
+      margin-bottom: 20px;
+      width: 100%;
+      border: 1px solid #ccc;
+    }
+
+    & textarea {
+      margin-bottom: 20px;
+      width: 100%;
+      height: 100px;
+      border: 1px solid #ccc;
+    }
+
+    & input[type='submit'] {
+      cursor: pointer;
+      padding: 5px 20px;
+      border: 0;
+      background-color: #333;
+      color: white;
+      font-size: 1rem;
+    }
+  }
+`
 
 const goPrevPage = keyframes`
 0%{transform: translate(0%, 0);}
@@ -92,11 +150,20 @@ const ContectTextWrapper = styled.div`
   font-size: 1.3rem;
 
   & > div {
-    padding: 0 150px;
+    width: 500px;
+
+    &:nth-child(2) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & p {
+      }
+    }
   }
 
   & a {
-    padding-bottom: 20px;
+    padding-right: 10px;
     display: inline-block;
     color: black;
 
