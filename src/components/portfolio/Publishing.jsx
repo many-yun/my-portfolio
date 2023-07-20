@@ -17,32 +17,25 @@ const widhtAndHeight = 400
 
 const Publishing = () => {
   const [sliderPosition, setSliderPosition] = useState(0)
+  console.log(sliderPosition)
+
+  const nowWidth = 5040 / window.innerWidth // 7.123
 
   const onClickPublishingNext = () => {
-    if (window.innerWidth <= 1600) {
-      sliderPosition <= 6 ? setSliderPosition(sliderPosition + 1) : setSliderPosition(7)
-    } else if (window.innerWidth > 1600) {
-      sliderPosition <= 5 ? setSliderPosition(sliderPosition + 1) : setSliderPosition(6)
-    }
+    sliderPosition <= 5040 - window.innerWidth * 2
+      ? setSliderPosition(sliderPosition + 5040 / nowWidth)
+      : setSliderPosition(5040 - window.innerWidth)
   }
 
   const onClickPublishingPrev = () => {
-    sliderPosition >= 0 ? setSliderPosition(sliderPosition - 1) : setSliderPosition(0)
+    sliderPosition > 0 + window.innerWidth
+      ? setSliderPosition(sliderPosition - 5040 / nowWidth)
+      : setSliderPosition(0)
   }
 
   return (
     <PublishingWrapper>
-      <SliderArrowBtn>
-        <PrevBtn onClick={onClickPublishingPrev} style={{ marginRight: '10px' }}>
-          <TbPlayerTrackPrevFilled />
-        </PrevBtn>
-        <NextBtn onClick={onClickPublishingNext}>
-          <TbPlayerTrackNextFilled />
-        </NextBtn>
-      </SliderArrowBtn>
-      <SlideWrapper
-        style={{ transform: `translate(-${(widhtAndHeight + 130) * sliderPosition}px,0)` }}
-      >
+      <SlideWrapper style={{ transform: `translate(-${sliderPosition}px,0)` }}>
         <PublishingWork1 to="https://www.asiaea.or.kr/" target="_blank">
           <PublishingLp></PublishingLp>
           <PublishingCover className="publishingCover">
@@ -124,6 +117,14 @@ const Publishing = () => {
           </PublishingCover>
         </PublishingWork8>
       </SlideWrapper>
+      <SliderArrowBtn>
+        <PrevBtn onClick={onClickPublishingPrev} style={{ marginRight: '10px' }}>
+          <TbPlayerTrackPrevFilled />
+        </PrevBtn>
+        <NextBtn onClick={onClickPublishingNext}>
+          <TbPlayerTrackNextFilled />
+        </NextBtn>
+      </SliderArrowBtn>
     </PublishingWrapper>
   )
 }

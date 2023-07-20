@@ -8,6 +8,8 @@ import Portfolio from './pages/Portfolio'
 import Contect from './pages/Contect'
 import styled from 'styled-components'
 
+import theme from './utils/theme'
+
 function App() {
   return (
     <AppWrapper>
@@ -26,6 +28,10 @@ export default App
 const AppWrapper = styled.div`
   background-color: #f0f1f3;
   height: 100vh;
+
+  @media screen and (${theme.laptop2}) {
+    height: auto;
+  }
 
   // & > div {
   //   margin: 0 auto;

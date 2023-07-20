@@ -27,7 +27,7 @@ const menuHeight = lpRadius * (2 + Math.round(Math.sqrt(3) * 100) / 100)
 const centralPoint = (1 + (2 / 3) * (Math.round(Math.sqrt(3) * 100) / 100)) * lpRadius
 
 function Main() {
-  const [degree, setDegree] = useState(0)
+  const [degree, setDegree] = useState(120)
   const [nowMenu, setNowMenu] = useState('about')
   const [scrollStart, setScrollStart] = useState(false)
   const [onAnimation, setOnAnimation] = useState('')
@@ -103,14 +103,6 @@ function Main() {
       <FlexWrapper className={onAnimation}>
         <MenuWrapper onWheel={onScrollEvent} style={{ transform: `rotate(${degree}deg)` }}>
           <VinylWrapper>
-            <ImageWrapper className="imageWrapper" data-title="about" onClick={onClickVinylLink}>
-              <VinylTitle>
-                <p>About</p>
-                <p>About</p>
-              </VinylTitle>
-            </ImageWrapper>
-          </VinylWrapper>
-          <VinylWrapper>
             <PortfolioMenu>
               <div
                 ref={elem => (portfolioMenuRef.current[0] = elem)}
@@ -159,6 +151,14 @@ function Main() {
               </VinylTitle>
             </ImageWrapper>
           </VinylWrapper>
+          <VinylWrapper>
+            <ImageWrapper className="imageWrapper" data-title="about" onClick={onClickVinylLink}>
+              <VinylTitle>
+                <p>About</p>
+                <p>About</p>
+              </VinylTitle>
+            </ImageWrapper>
+          </VinylWrapper>
         </MenuWrapper>
       </FlexWrapper>
       <ScrollInfo scrollStart={scrollStart} />
@@ -184,7 +184,7 @@ const turnVinyl3 = keyframes`
 
 const portfolioMenuAnimation1 = keyframes`
 0%{
-  ransform: translate(-100%,150%);
+  transform: translate(-100%,150%);
 }
 40%{
   transform: translate(-100%,150%);}
@@ -225,9 +225,9 @@ const MainWrapper = styled.div`
 
 const PortfolioMenu = styled.div`
   position: absolute;
-  right: 12%;
-  bottom: -10.5%;
-  transform: rotate(120deg);
+  right: 20%;
+  top: 0;
+  // transform: rotate(120deg);
   font-size: 1.1rem;
   width: 400px;
   height: 400px;
@@ -235,13 +235,13 @@ const PortfolioMenu = styled.div`
   cursor: pointer;
 
   @media screen and (${theme.laptop}) {
-    right: 11%;
-    bottom: -15%;
+    right: 17%;
+    top: -3%;
   }
 
   @media screen and (${theme.laptop2}) {
-    right: -5%;
-    bottom: 4%;
+    right: calc(50% - 200px);
+    top: -8%;
 
     & > div {
       &:nth-child(1) {
@@ -257,8 +257,8 @@ const PortfolioMenu = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-    right: -8%;
-    bottom: -0.5%;
+    right: calc(50% - 200px);
+    top: -11%;
   }
 
   & > div {
@@ -326,8 +326,8 @@ const FlexWrapper = styled.div`
 `
 
 const lpUp = keyframes`
-  0%{transform:translate(0,${lpRadius}px)}
-  100%{transform:translate(0,0)}
+  0%{transform:translate(0,${lpRadius}px) rotate(120deg)}
+  100%{transform:translate(0,0) rotate(120deg)}
 `
 
 const MenuWrapper = styled.div`
@@ -367,7 +367,6 @@ const VinylTitle = styled.div`
     position: absolute;
     left: 45%;
     top: 45%;
-    position: absolute;
     width: 10%;
     height: 10%;
     background-color: white;
@@ -406,33 +405,33 @@ const VinylWrapper = styled.div`
   @media screen and (${theme.laptop2}) {
     &:nth-child(1) > .imageWrapper {
       animation: ${turnVinyl1} 5s infinite linear;
-      box-shadow: 0 0 50px #538d9f;
+      box-shadow: 0 0 50px #9d8bc3;
     }
 
     &:nth-child(2) > .imageWrapper {
       animation: ${turnVinyl2} 5s infinite linear;
-      box-shadow: 0 0 50px #9d8bc3;
+      box-shadow: 0 0 50px #b7bc7e;
     }
 
     &:nth-child(3) > .imageWrapper {
       animation: ${turnVinyl3} 5s infinite linear;
-      box-shadow: 0 0 50px #b7bc7e;
+      box-shadow: 0 0 50px #538d9f;
     }
   }
 
   &:nth-child(1):hover > .imageWrapper {
     animation: ${turnVinyl1} 5s infinite linear;
-    box-shadow: 0 0 50px #538d9f;
+    box-shadow: 0 0 50px #9d8bc3;
   }
 
   &:nth-child(2):hover > .imageWrapper {
     animation: ${turnVinyl2} 5s infinite linear;
-    box-shadow: 0 0 50px #9d8bc3;
+    box-shadow: 0 0 50px #b7bc7e;
   }
 
   &:nth-child(3):hover > .imageWrapper {
     animation: ${turnVinyl3} 5s infinite linear;
-    box-shadow: 0 0 50px #b7bc7e;
+    box-shadow: 0 0 50px #538d9f;
   }
 
   &:nth-child(1) > .imageWrapper {
@@ -440,7 +439,7 @@ const VinylWrapper = styled.div`
     top: 0;
 
     & > div {
-      background-color: #7eaebc;
+      background-color: #9d8bc3;
     }
   }
   &:nth-child(2) > .imageWrapper {
@@ -449,7 +448,7 @@ const VinylWrapper = styled.div`
     transform: rotate(120deg);
 
     & > div {
-      background-color: #9d8bc3;
+      background-color: #b7bc7e;
     }
   }
   &:nth-child(3) > .imageWrapper {
@@ -458,7 +457,7 @@ const VinylWrapper = styled.div`
     transform: rotate(240deg);
 
     & > div {
-      background-color: #b7bc7e;
+      background-color: #7eaebc;
     }
   }
 `
